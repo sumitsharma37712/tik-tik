@@ -1,0 +1,259 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    border-bottom: 0.1rem solid transparent;
+    z-index: 999;
+    background-color: #04AA6D;
+    transition: 300ms all ease-in-out;
+}
+
+header.sticky {
+    background: var(--glass-bg);
+    border-bottom: 0.1rem solid var(--glass-bg);
+    backdrop-filter: blur(5rem);
+}
+
+header .nav {
+    position: relative;
+    padding: 2rem 0;
+}
+
+header .nav .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .hamburger {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3rem;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    display: none;
+}
+
+header .hamburger span {
+    display: block;
+    height: 0.2rem;
+    width: 100%;
+    background: var(--white);
+    margin: 0.7rem 0;
+    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transition-duration: 100ms;
+}
+
+header .hamburger.activeX span:nth-child(2) {
+    opacity: 0;
+}
+
+header .hamburger.activeX span:nth-child(1) {
+    transform: rotate(45deg) translateX(0.7rem) translateY(0.5rem);
+}
+
+header .hamburger.activeX span:nth-child(3) {
+    transform: rotate(-45deg) translateX(0.7rem) translateY(-0.5rem);
+}
+
+header .menus .nav-item {
+    position: relative;
+    margin-left: 2rem;
+    font-size: 1.8rem;
+    padding-right: 2.5rem;
+    background-position: right;
+    transition: 300ms;
+}
+
+header .menus .nav-item:has(.submenu)::before {
+    content: '';
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    height: 100%;
+    width: 1.5rem;
+    /* background: url('../../assets/images/caret-down.png') no-repeat; */
+    opacity: 0.5;
+    transition: all 0.5s;
+}
+
+header .menus .nav-item:hover::before {
+    opacity: 1;
+    transform: rotate(180deg);
+    top: -1rem;
+}
+
+header .menus .nav-item a span {
+    text-transform: capitalize;
+}
+
+header .menus .nav-item a span::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    background: var(--black);
+    height: 2px;
+    transition: 0.5s;
+}
+
+header .menus .nav-item a:hover span::before {
+    width: 80%;
+}
+
+header .menus .nav-item:hover a {
+    color: var(--white);
+    text-align: center;
+}
+
+header .menus .nav-item a {
+    color: gold;
+}
+
+header .menus .nav-item .submenu {
+    position: absolute;
+    top: 2rem;
+    left: -8rem;
+    min-width: 18rem;
+    padding-top: 4rem;
+    transform: translateY(5rem);
+    opacity: 0;
+    pointer-events: none;
+    transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    transition-duration: 300ms;
+}
+
+header .menus .nav-item:hover .submenu {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+}
+
+header .menus .nav-item .submenu ul {
+    backdrop-filter: blur(1rem);
+    background: var(--white);
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+}
+
+header .menus .nav-item .submenu li a {
+    padding: 0.5rem 0;
+    transition: 300ms;
+    color: rgb(142, 32, 32) !important;
+}
+
+header .menus .nav-item .submenu li:not(:last-child) {
+    border-bottom: 0.1rem solid var(--menu-item-color);
+}
+
+header .menus .nav-item .submenu li:hover a {
+    color: var(--black) !important;
+    /* font-weight: 500; */
+    /* color: var(--white) !important; */
+}
+
+header .menus .nav-item .submenu li a {
+    color: var(--black);
+    font-size: 1.5rem;
+    white-space: nowrap;
+    transition: 300ms;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 1024px) {
+    header .menus .nav-item {
+        font-size: 1.6rem;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .menus {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        background: var(--footer-bg);
+        min-height: 100vh;
+        overflow-y: auto;
+        padding: 0 2.5rem;
+        z-index: 1000;
+        transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+        transition-duration: 300ms;
+    }
+
+    .menus.activeX {
+        left: 0;
+        gap: 1.5rem;
+    }
+
+    header .hamburger {
+        display: block;
+        z-index: 1000;
+    }
+
+    header .menus .nav-item {
+        height: 4rem;
+        margin-left: 0;
+        width: 100%;
+        transition: 300ms;
+    }
+
+    header .menus .nav-item:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+
+    header .menus .nav-item:hover {
+        height: auto;
+    }
+
+    header .menus .nav-item a {
+        color: var(--white);
+    }
+
+    header .menus .nav-item .submenu {
+        padding-top: 2rem;
+        position: static;
+        opacity: 1;
+        pointer-events: all;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition-duration: 300ms;
+        display: none;
+    }
+
+    header .menus .nav-item:has(.submenu)::before {
+        display: none;
+    }
+
+    header .menus .nav-item:hover .submenu {
+        transform: scaleY(1);
+    }
+
+    header .menus .nav-item a:hover span::before {
+        width: 0;
+    }
+}
+
+.progress-container {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    height: 2px;
+    background: #ccc;
+}
+
+.progress-bar {
+    height: 2px;
+    background: #04AA6D;
+    width: 0%;
+}

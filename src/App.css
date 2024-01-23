@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@100;200;400;500;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.6rem;
+}
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --green: #70ff4d;
+  --light-gray: #c4c4c4;
+  --glass-bg: #36363644;
+  --dark-purple: #19161c;
+  --menu-item-color: #848895;
+  --subscribe-bg: #0a0a0a;
+  --placeholder-clr: #848895;
+  --footer-bg: #000508;
+  --footer-text: #848895;
+  --border: #141414;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+#root {
+  width: 100%;
+}
+
+.main {
+  background: var(--black);
+  padding-top: 8rem;
+}
+
+h1 {
+  font-size: 8rem;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 5rem;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 3.6rem;
+  font-weight: 400;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+img {
+  height: auto;
+  vertical-align: middle;
+}
+
+::selection {
+  background: var(--white);
+  color: var(--black);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: var(--white);
+  box-shadow: inset 0 0 5px var(--black);
+  /* border-radius: 10px; */
+}
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+  background: var(--black);
+  border-radius: 10px;
+  /* border: 1px solid var(--green); */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: black;
+}
+
+.container {
+  position: relative;
+  max-width: 144rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 9rem;
+}
+.containerFull{
+  position: relative;
+  max-width: 144rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: auto;
+}
+.row {
+  display: flex;
+  margin: 0 -1rem;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+.column-40 {
+  width: 40%;
+}
+
+.column-50 {
+  width: 50%;
+}
+
+.column-60 {
+  width: 60%;
+}
+
+.column-33 {
+  width: 33.33%;
+}
+
+.inner {
+  padding: 0 1rem;
+}
+
+.text-green {
+  color: var(--green);
+}
+
+.bg-green {
+  background-color: var(--green);
+}
+
+.grid3x3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-gap: 3rem;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 1200px) {
+  .container {
+    padding: 0 5rem;
+  }
+
+  h2 {
+    font-size: 4.2rem;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    padding: 0 4rem;
+  }
+
+  .column-33 {
+    width: 50%;
+  }
+
+  h2 {
+    font-size: 3.6rem;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .container {
+    padding: 0 3rem;
+  }
+
+  h2 {
+    font-size: 3.2rem;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .row {
+    margin: unset;
+  }
+
+  .container {
+    padding: 0 2.5rem;
+  }
+
+  .column-40 {
+    width: 100%;
+  }
+
+  .column-50 {
+    width: 100%;
+  }
+
+  .column-60 {
+    width: 100%;
+  }
+
+  .column-33 {
+    width: 100%;
+  }
+
+  .inner {
+    padding: 1rem 0;
+  }
+
+  h2 {
+    font-size: 2.8rem;
+  }
+
+  .grid3x3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.float {
+  height: 300px;
+  /* background-image: url(../src//assets/images/cunstructq.jpg); */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  color: black;
+  max-width: 300px;
+  width: 100%;
+  position: fixed;
+  right: 10%;
+  top: 20%;
+  z-index: 5;
+  border-radius: 25px;
+  box-shadow: 5px 5px 25px var(--black);
+  animation: float 10s infinite 0.2s;
+}
+
+@keyframes float {
+  0%,100% {
+    right: 10%;
+    top: 20%
+  }
+
+  50% {
+    right: 80%;
+    top: 40%;
+  }
+
+  
+}
+
+.active{
+  color: var(--white) !important;
+}
+#back-to-top {
+  position: fixed;
+  background-color: var(--green);
+  right: 2%;
+  bottom: 2%;
+  cursor: pointer;
+  padding: 10px;
+  color: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: 0.5s;
+  z-index: 10;
+}
